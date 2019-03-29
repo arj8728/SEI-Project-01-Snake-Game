@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   const width = 18
   const squares = []
   const snake = [3,2,1,0]
+  let direction = 'right'
 
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('DIV')
@@ -21,8 +22,17 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   function moveSnake() {
     eraseSnake()
-    snake.pop()
-    snake.unshift(snake[0] + 1)
+    //snake.pop()
+    //snake.unshift(snake[0] + 1)
+    switch(direction){
+      case 'right': moveSnakeRight()
+        break
+      case 'left': moveSnakeLeft()
+        break
+      case 'up': moveSnakeUp()
+        break
+      case 'down': moveSnakeDown()
+    }
     drawSnake()
   }
 
@@ -58,48 +68,34 @@ document.addEventListener('DOMContentLoaded', () =>{
     drawSnake()
   }
 
-  //document.addEventListener('keydown', (e) => {
-    //switch(e.keyCode) {
-      //case 37:
-        // left
-        //moveSnakeLeft()
-    //}
-    //break
 
   document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
-      case 37:
-        // left
+      case 37: direction = 'left'
         {
-
           moveSnakeLeft()
         }
         break
 
-      case 38:
-        // up
+      case 38: direction = 'up'
         {
-
           moveSnakeUp()
         }
         break
 
-      case 39:
-        // right
+      case 39: direction= 'right'
         {
-
           moveSnakeRight()
         }
         break
 
-      case 40:
-        // down
+      case 40: direction= 'down'
         {
-
           moveSnakeDown()
         }
         break
     }
+
   })
 
 
