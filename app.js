@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   function moveSnake() {
     eraseSnake()
     snake.pop()
-    snake.unshift(snake[0] + width)
+    snake.unshift(snake[0] + 1)
     drawSnake()
   }
 
@@ -30,4 +30,83 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   setInterval(moveSnake, 1000)
 
+  function moveSnakeDown() {
+    eraseSnake()
+    snake.pop()
+    snake.unshift(snake[0] + width)
+    drawSnake()
+  }
+
+  function moveSnakeUp() {
+    eraseSnake()
+    snake.pop()
+    snake.unshift(snake[0] - width)
+    drawSnake()
+  }
+
+  function moveSnakeLeft() {
+    eraseSnake()
+    snake.pop()
+    snake.unshift(snake[0] - 1)
+    drawSnake()
+  }
+
+  function moveSnakeRight() {
+    eraseSnake()
+    snake.pop()
+    snake.unshift(snake[0] + 1)
+    drawSnake()
+  }
+
+  //document.addEventListener('keydown', (e) => {
+    //switch(e.keyCode) {
+      //case 37:
+        // left
+        //moveSnakeLeft()
+    //}
+    //break
+
+  document.addEventListener('keydown', (e) => {
+    switch(e.keyCode) {
+      case 37:
+        // left
+        {
+
+          moveSnakeLeft()
+        }
+        break
+
+      case 38:
+        // up
+        {
+
+          moveSnakeUp()
+        }
+        break
+
+      case 39:
+        // right
+        {
+
+          moveSnakeRight()
+        }
+        break
+
+      case 40:
+        // down
+        {
+
+          moveSnakeDown()
+        }
+        break
+    }
+  })
+
+
+
+
+
+
+
+// dom
 })
