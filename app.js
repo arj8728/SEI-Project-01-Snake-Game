@@ -21,6 +21,12 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
   function moveSnake() {
+    if (snake[0] % width === 0 && direction === 'left' ||
+        snake[0] % width === width -1  && direction === 'right' ||
+        snake[0] - width < 0  && direction === 'up' ||
+        snake[0] >= width * (width - 1 )  && direction === 'down') {
+      return false
+    }
     eraseSnake()
     //snake.pop()
     //snake.unshift(snake[0] + 1)
@@ -38,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   drawSnake()
 
-  setInterval(moveSnake, 1000)
+  setInterval(moveSnake, 100)
 
   function moveSnakeDown() {
     eraseSnake()
@@ -72,32 +78,16 @@ document.addEventListener('DOMContentLoaded', () =>{
   document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
       case 37: direction = 'left'
-        {
-          moveSnakeLeft()
-        }
         break
-
       case 38: direction = 'up'
-        {
-          moveSnakeUp()
-        }
         break
-
       case 39: direction= 'right'
-        {
-          moveSnakeRight()
-        }
         break
-
       case 40: direction= 'down'
-        {
-          moveSnakeDown()
-        }
         break
     }
 
   })
-
 
 
 
