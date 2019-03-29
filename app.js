@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   const squares = []
   const snake = [3,2,1,0]
   let direction = 'right'
+  const apple =
 
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('DIV')
