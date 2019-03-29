@@ -21,6 +21,12 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake.forEach(index => squares[index].classList.remove('snake'))
   }
 
+  function apple() {
+    const randomSquare = squares[Math.floor(Math.random() * squares.length)]
+    randomSquare.classList.add('apple')
+    console.log('randomSquare')
+  }
+
   function moveSnake() {
     if (snake[0] % width === 0 && direction === 'left' ||
         snake[0] % width === width -1  && direction === 'right' ||
@@ -91,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   })
 
 
-
+  apple()
 
 
 

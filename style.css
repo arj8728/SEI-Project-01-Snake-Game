@@ -31,4 +31,12 @@ body {
 
 .snake {
   background: coral;
+  background-image: url('images/snake.gif');
+  background-size: contain;
+}
+
+.apple {
+  background: yellow;
+  background-image: url('images/coin.gif');
+  background-size: contain;
 }
