@@ -40,3 +40,8 @@ body {
   background-image: url('images/coin.gif');
   background-size: contain;
 }
+
+.score {
+  width: 100px;
+  border: 1px solid black;
+}

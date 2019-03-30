@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () =>{
   const squares = []
   const snake = [3,2,1,0]
   let direction = 'right'
-
+  const scoreDisplay = document.querySelector('.score')
+  let score = 0
 
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('DIV')
@@ -47,8 +48,14 @@ document.addEventListener('DOMContentLoaded', () =>{
       case 'down': moveSnakeDown()
     }
     drawSnake()
-  }
 
+    if (squares[snake[0]].classList.contains('apple')) {
+      score += 1
+      //window.prompt('test is working')
+      scoreDisplay.innerText = score
+      snake.className = ''
+    } else return null
+  }
   drawSnake()
 
   setInterval(moveSnake, 100)
@@ -96,9 +103,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   })
 
-
   apple()
-
 
 
 // dom
