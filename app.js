@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     if (squares[snake[0]].classList.contains('apple')) {
       score += 1
       randomSquare.classList.remove('apple')
-      //window.prompt('test is working')
+      snake.unshift(snake[0])
       scoreDisplay.innerText = score
       apple()
     } else return null
@@ -106,6 +106,5 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   apple()
 
-
-// dom
+// dom last brackets
 })
