@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   let direction = 'right'
   const scoreDisplay = document.querySelector('.score')
   let score = 0
+  let randomSquare = 0
 
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('DIV')
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
   function apple() {
-    const randomSquare = squares[Math.floor(Math.random() * squares.length)]
+    randomSquare = squares[Math.floor(Math.random() * squares.length)]
     randomSquare.classList.add('apple')
     console.log('randomSquare')
   }
@@ -51,9 +52,10 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     if (squares[snake[0]].classList.contains('apple')) {
       score += 1
+      randomSquare.classList.remove('apple')
       //window.prompt('test is working')
       scoreDisplay.innerText = score
-      snake.className = ''
+      apple()
     } else return null
   }
   drawSnake()
@@ -87,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake.unshift(snake[0] + 1)
     drawSnake()
   }
-
 
   document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
