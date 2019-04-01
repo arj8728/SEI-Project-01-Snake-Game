@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   const scoreDisplay = document.querySelector('.score')
   let score = 0
   let randomSquare = 0
+  let speedSnake = 300
 
   for(let i = 0; i < width * width; i++) {
     const square = document.createElement('DIV')
@@ -40,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     grid.classList.remove('grid')
   }
 
-
   function moveSnake() {
     if (snake[0] % width === 0 && direction === 'left' ||
         snake[0] % width === width -1  && direction === 'right' ||
@@ -63,17 +63,20 @@ document.addEventListener('DOMContentLoaded', () =>{
     killSnake()
 
     if (squares[snake[0]].classList.contains('apple')) {
-      score += 1
+      score ++
+      speedSnake -= 10
+      console.log(speedSnake)
       randomSquare.classList.remove('apple')
       snake.unshift(snake[0])
       scoreDisplay.innerText = score
       apple()
-    } else return null
+    }
+
+    drawSnake()
+
+    setTimeout(moveSnake, speedSnake)
   }
-  drawSnake()
-
-
-  setInterval(moveSnake, 200)
+  moveSnake()
 
   function moveSnakeDown() {
     eraseSnake()

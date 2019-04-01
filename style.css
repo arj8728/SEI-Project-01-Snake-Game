@@ -49,12 +49,15 @@ body {
   width: 100px;
   border: 1px solid black;
   display: flex;
-  margin-right: 30px;
+
 }
 
-h2 {
+h1 {
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+main {
   display: flex;
-  flex-wrap: wrap;
-  font-size: 36px;
-  margin-right: 10px;
+  flex-direction: column;
 }
