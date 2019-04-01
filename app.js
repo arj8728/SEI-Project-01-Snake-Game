@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         break
       case 'down': moveSnakeDown()
     }
-    drawSnake()
+    //drawSnake()
     killSnake()
 
     if (squares[snake[0]].classList.contains('apple')) {
