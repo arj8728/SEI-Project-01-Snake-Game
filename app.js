@@ -29,12 +29,18 @@ document.addEventListener('DOMContentLoaded', () =>{
     console.log('randomSquare')
   }
 
+  function gameOver() {
+    console.log('gameOver')
+    grid.classList.remove('grid')
+  }
+
+
   function moveSnake() {
     if (snake[0] % width === 0 && direction === 'left' ||
         snake[0] % width === width -1  && direction === 'right' ||
         snake[0] - width < 0  && direction === 'up' ||
         snake[0] >= width * (width - 1 )  && direction === 'down') {
-      return false
+      return gameOver()
     }
     eraseSnake()
     //snake.pop()
