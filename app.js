@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake.forEach(index => squares[index].classList.add('snake'))
   }
 
+  function killSnake() {
+    if(snake.slice(1).includes(snake[0])) {
+      return gameOver()
+    }
+  }
+
   function eraseSnake() {
     snake.forEach(index => squares[index].classList.remove('snake'))
   }
@@ -43,8 +49,7 @@ document.addEventListener('DOMContentLoaded', () =>{
       return gameOver()
     }
     eraseSnake()
-    //snake.pop()
-    //snake.unshift(snake[0] + 1)
+
     switch(direction){
       case 'right': moveSnakeRight()
         break
@@ -55,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () =>{
       case 'down': moveSnakeDown()
     }
     drawSnake()
+    killSnake()
 
     if (squares[snake[0]].classList.contains('apple')) {
       score += 1
@@ -66,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
   drawSnake()
 
-  setInterval(moveSnake, 100)
+
+  setInterval(moveSnake, 200)
 
   function moveSnakeDown() {
     eraseSnake()
@@ -98,13 +105,13 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
-      case 37: direction = 'left'
+      case 37: if (direction !== 'right') direction = 'left'
         break
-      case 38: direction = 'up'
+      case 38: if (direction !== 'down') direction = 'up'
         break
-      case 39: direction= 'right'
+      case 39: if (direction !== 'left') direction= 'right'
         break
-      case 40: direction= 'down'
+      case 40: if (direction !== 'up') direction= 'down'
         break
     }
 
