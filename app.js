@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   let speedSnake = 300
   const resetBtn = document.querySelector('button')
   let gameInPlay = true
-  const imag = document.querySelector(' .dead')
-
+  document.querySelector(' .dead')
 
   for(let i = 0; i < width * width; i++) {
     if (gameInPlay === true){
@@ -137,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     //gameInPlay = true
     drawSnake()
     moveSnake()
+    score = 0
+    scoreDisplay.innerText = score
   })
 
   apple()
