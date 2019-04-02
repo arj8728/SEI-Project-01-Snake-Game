@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   let speedSnake = 300
   const resetBtn = document.querySelector('button')
   let gameInPlay = true
+  const imag = document.querySelector(' .dead')
 
 
   for(let i = 0; i < width * width; i++) {
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     console.log('gameOver')
     eraseSnake()
     grid.classList.remove('grid')
+    grid.classList.add('dead')
     gameInPlay = false
   }
 
@@ -130,8 +132,9 @@ document.addEventListener('DOMContentLoaded', () =>{
   resetBtn.addEventListener('click', () => {
     snake = [3,2,1,0]
     direction = 'right'
+    grid.classList.remove('dead')
     grid.classList.add('grid')
-    gameInPlay = false
+    //gameInPlay = true
     drawSnake()
     moveSnake()
   })
