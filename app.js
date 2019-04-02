@@ -3,17 +3,22 @@ document.addEventListener('DOMContentLoaded', () =>{
   const grid = document.querySelector('.grid')
   const width = 18
   const squares = []
-  const snake = [3,2,1,0]
+  let snake = [3,2,1,0]
   let direction = 'right'
   const scoreDisplay = document.querySelector('.score')
   let score = 0
   let randomSquare = 0
   let speedSnake = 300
+  const resetBtn = document.querySelector('button')
+  let gameInPlay = true
+
 
   for(let i = 0; i < width * width; i++) {
-    const square = document.createElement('DIV')
-    squares.push(square)
-    grid.appendChild(square)
+    if (gameInPlay === true){
+      const square = document.createElement('DIV')
+      squares.push(square)
+      grid.appendChild(square)
+    }
   }
 
   function drawSnake() {
@@ -38,10 +43,13 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   function gameOver() {
     console.log('gameOver')
+    eraseSnake()
     grid.classList.remove('grid')
+    gameInPlay = false
   }
 
   function moveSnake() {
+    console.log(snake)
     if (snake[0] % width === 0 && direction === 'left' ||
         snake[0] % width === width -1  && direction === 'right' ||
         snake[0] - width < 0  && direction === 'up' ||
@@ -117,7 +125,15 @@ document.addEventListener('DOMContentLoaded', () =>{
       case 40: if (direction !== 'up') direction= 'down'
         break
     }
+  })
 
+  resetBtn.addEventListener('click', () => {
+    snake = [3,2,1,0]
+    direction = 'right'
+    grid.classList.add('grid')
+    gameInPlay = false
+    drawSnake()
+    moveSnake()
   })
 
   apple()
