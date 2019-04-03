@@ -8,11 +8,13 @@ document.addEventListener('DOMContentLoaded', () =>{
   const scoreDisplay = document.querySelector('.score')
   let score = 0
   let randomSquare = 0
-  let speedSnake = 300
+  let speedSnake = 400
   const resetBtn = document.querySelector('button')
   let gameInPlay = true
-  document.querySelector(' .dead')
+  document.querySelector('.dead')
+  let timer
 
+  // create a grid
   for(let i = 0; i < width * width; i++) {
     if (gameInPlay === true){
       const square = document.createElement('DIV')
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake.forEach(index => squares[index].classList.add('snake'))
   }
 
+  // when snake hits its own tail it is killed
   function killSnake() {
     if(snake.slice(1).includes(snake[0])) {
       return gameOver()
@@ -47,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     grid.classList.remove('grid')
     grid.classList.add('dead')
     gameInPlay = false
+    speedSnake = 400
   }
 
   function moveSnake() {
@@ -83,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     drawSnake()
 
-    setTimeout(moveSnake, speedSnake)
+    timer = setTimeout(moveSnake, speedSnake)
   }
   moveSnake()
 
@@ -129,15 +133,17 @@ document.addEventListener('DOMContentLoaded', () =>{
   })
 
   resetBtn.addEventListener('click', () => {
+    snake.forEach(index => squares[index].classList.remove('snake'))
     snake = [3,2,1,0]
     direction = 'right'
+    gameInPlay = true
+    clearTimeout(timer)
     grid.classList.remove('dead')
     grid.classList.add('grid')
-    //gameInPlay = true
-    drawSnake()
-    moveSnake()
     score = 0
     scoreDisplay.innerText = score
+    drawSnake()
+    moveSnake()
   })
 
   apple()
