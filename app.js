@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   let direction = 'right'
   const scoreDisplay = document.querySelector('.score')
   let score = 0
-  let randomSquare = 0
+  let randomIndex = 0
   let speedSnake = 400
   const resetBtn = document.querySelector('button')
   let gameInPlay = true
@@ -16,11 +16,9 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   // create a grid
   for(let i = 0; i < width * width; i++) {
-    if (gameInPlay === true){
-      const square = document.createElement('DIV')
-      squares.push(square)
-      grid.appendChild(square)
-    }
+    const square = document.createElement('DIV')
+    squares.push(square)
+    grid.appendChild(square)
   }
 
   function drawSnake() {
@@ -39,10 +37,13 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
   function apple() {
-    randomSquare = squares[Math.floor(Math.random() * squares.length)]
-    randomSquare.classList.add('apple')
-    console.log('randomSquare')
+    let randomIndex = Math.floor(Math.random() * squares.length)
+    while(squares[randomIndex].classList.contains('snake')) {
+      randomIndex = Math.floor(Math.random() * squares.length)
+    }
+    squares[randomIndex].classList.add('apple')
   }
+
 
   function gameOver() {
     console.log('gameOver')
@@ -72,14 +73,13 @@ document.addEventListener('DOMContentLoaded', () =>{
         break
       case 'down': moveSnakeDown()
     }
-    //drawSnake()
     killSnake()
 
     if (squares[snake[0]].classList.contains('apple')) {
       score ++
       speedSnake -= 10
       console.log(speedSnake)
-      randomSquare.classList.remove('apple')
+      squares[snake[0]].classList.remove('apple')
       snake.unshift(snake[0])
       scoreDisplay.innerText = score
       apple()
