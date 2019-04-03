@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () =>{
   let randomIndex = 0
   let speedSnake = 400
   const resetBtn = document.querySelector('button')
-  //let gameInPlay = true
   document.querySelector('.dead')
   let timer
 
@@ -49,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     eraseSnake()
     grid.classList.remove('grid')
     grid.classList.add('dead')
-    //gameInPlay = false
     speedSnake = 400
   }
 
@@ -135,7 +133,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     snake.forEach(index => squares[index].classList.remove('snake'))
     snake = [3,2,1,0]
     direction = 'right'
-    //gameInPlay = true
     clearTimeout(timer)
     grid.classList.remove('dead')
     grid.classList.add('grid')
@@ -147,5 +144,5 @@ document.addEventListener('DOMContentLoaded', () =>{
 
   apple()
 
-// dom last brackets
+
 })

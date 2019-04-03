@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
-
 * {
   box-sizing: border-box;
 }
@@ -13,6 +12,11 @@ body {
   margin: 0;
   background-image: url('images/7567-mario-backgrounds.jpg');
   background-size: contain;
+}
+
+main {
+   /* display: flex; */
+  /* align-content: ;  */
 }
 
 .grid {
@@ -60,6 +64,13 @@ body {
   font-family: Roboto;
 }
 
+.scoreTag {
+  margin-top: 40px;
+  margin-left: 600px;
+  font-size: 30px;
+  font-family: Roboto;
+}
+
 h1 {
   display: flex;
   flex-direction: column;
@@ -78,6 +89,15 @@ font-size: 20px;
 }
 
 button {
-    margin-left: 700px;
+    /* margin-left: 700px; */
+    display: flex;
+    flex-direction: column;
+
     font-size: 30px;
+    text-align: center;
+    font-family: Roboto;
+    background-color: #24272E;
+    color: red;
+    border-radius: 10px;
+    /* bottom: -100px; */
 }
