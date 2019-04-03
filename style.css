@@ -14,14 +14,9 @@ body {
   background-size: contain;
 }
 
-main {
-   /* display: flex; */
-  /* align-content: ;  */
-}
-
 .grid {
   align-items: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -39,17 +34,17 @@ main {
 }
 
 .snake {
-  background: coral;
   background-image: url('images/snake.gif');
   background-size: contain;
   border-radius: 15px;
+  background-repeat: no-repeat;
 }
 
 .apple {
-  background: yellow;
   background-image: url('images/coin.gif');
   background-size: contain;
-  border-radius: 10px;
+  border-radius: 7px;
+  background-repeat: no-repeat;
 }
 
 .score {
@@ -62,24 +57,26 @@ main {
   margin-left: 600px;
   font-size: 30px;
   font-family: Roboto;
+  color: red;
 }
 
 .scoreTag {
+  width: 100px;
+  border: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   margin-top: 40px;
   margin-left: 600px;
   font-size: 30px;
   font-family: Roboto;
-}
-
-h1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  color: green;
 }
 
 .headMario {
 background-size: contain;
 font-size: 20px;
+margin-top: 40px;
 }
 
 .dead {
@@ -89,15 +86,19 @@ font-size: 20px;
 }
 
 button {
-    /* margin-left: 700px; */
     display: flex;
     flex-direction: column;
-
     font-size: 30px;
     text-align: center;
     font-family: Roboto;
     background-color: #24272E;
     color: red;
     border-radius: 10px;
-    /* bottom: -100px; */
+}
+
+.container > div {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  margin: auto;
 }
