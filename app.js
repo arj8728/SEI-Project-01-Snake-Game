@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   let direction = 'right'
   const scoreDisplay = document.querySelector('.score')
   let score = 0
-  let randomIndex = 0
+  //let randomIndex = 0
   let speedSnake = 400
   const resetBtn = document.querySelector('button')
   document.querySelector('.dead')
