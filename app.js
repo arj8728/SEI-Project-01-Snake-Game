@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   }
 
   document.addEventListener('keydown', (e) => {
+    e.preventDefault()
     switch(e.keyCode) {
       case 37: if (direction !== 'right') direction = 'left'
         break
