@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     eraseSnake()
     grid.classList.remove('grid')
     grid.classList.add('dead')
+    mySound.src = 'sounds/mariodeath.mp3'
+    mySound.play()
     speedSnake = 400
   }
 
@@ -148,6 +150,8 @@ document.addEventListener('DOMContentLoaded', () =>{
     scoreDisplay.innerText = score
     drawSnake()
     moveSnake()
+    mySound.src = 'sounds/theme.mp3'
+    mySound.play()
   })
 
   gameSound()
