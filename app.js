@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () =>{
   const grid = document.querySelector('.grid')
   const width = 18
   const squares = []
+  const mySound = document.querySelector('audio')
   let snake = [3,2,1,0]
   let direction = 'right'
   const scoreDisplay = document.querySelector('.score')
@@ -49,6 +50,11 @@ document.addEventListener('DOMContentLoaded', () =>{
     grid.classList.remove('grid')
     grid.classList.add('dead')
     speedSnake = 400
+  }
+
+  function gameSound() {
+    mySound.src = 'sounds/theme.mp3'
+    mySound.play()
   }
 
 
@@ -143,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () =>{
     drawSnake()
     moveSnake()
   })
+
+  gameSound()
+  console.log(gameSound)
 
   apple()
 
