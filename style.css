@@ -10,7 +10,9 @@ body {
   height: 100vh;
   justify-content: center;
   margin: 0;
-  background-image: url('images/7567-mario-backgrounds.jpg');
+  /* background-image: url('images/7567-mario-backgrounds.jpg'); */
+  background-image: url('images/mariosopacityback.png');
+  /* background-image: url('images/opacity 2ndtry.png'); */
   background-size: contain;
 }
 

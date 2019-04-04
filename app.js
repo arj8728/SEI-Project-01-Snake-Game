@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     speedSnake = 400
   }
 
+
   function moveSnake() {
     console.log(snake)
     if (snake[0] % width === 0 && direction === 'left' ||
