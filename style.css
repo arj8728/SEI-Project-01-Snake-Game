@@ -10,13 +10,13 @@ body {
   height: 100vh;
   justify-content: center;
   margin: 0;
-  background-image: url('images/mariosopacityback.png');
+  background-image: url('images/imageedit_9_2213498331.png');
   background-size: contain;
 }
 
 .grid {
   align-items: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.9);
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
@@ -91,7 +91,7 @@ button {
     font-size: 30px;
     text-align: center;
     font-family: Roboto;
-    background-color: #24272E;
+    background-color: black;
     color: red;
     border-radius: 10px;
 }

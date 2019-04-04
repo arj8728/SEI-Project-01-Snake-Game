@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () =>{
   let direction = 'right'
   const scoreDisplay = document.querySelector('.score')
   let score = 0
-  //let randomIndex = 0
   let speedSnake = 400
   const resetBtn = document.querySelector('button')
   document.querySelector('.dead')
   let timer
+  document.getElementById('themeL').loop = true
 
   // create a grid
   for(let i = 0; i < width * width; i++) {
@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     mySound.play()
   }
 
+  gameSound()
 
   function moveSnake() {
     console.log(snake)
@@ -154,10 +155,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     mySound.play()
   })
 
-  gameSound()
-  console.log(gameSound)
-
   apple()
-
 
 })
