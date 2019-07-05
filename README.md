@@ -25,7 +25,7 @@
 
 
 Link to my project:
-_https://arj8728.github.io/project-01/_
+_https://arj8728.github.io/SEI-Project-01-Snake-Game/_
 
 ### Introduction
 
